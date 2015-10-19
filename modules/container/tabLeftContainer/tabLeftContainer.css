@@ -1,0 +1,111 @@
+.tabLeftContainer-contaner {
+    width: 100%;
+    height: 100%;
+}
+
+.tabLeftContainer-contaner-hide {
+    width: 0px;
+}
+
+.tabLeftContainer-title {
+    /*height: 50px;*/
+    position: absolute;
+    width: 350px;
+}
+
+.tabLeftContainer-menu {
+    position: absolute;
+}
+
+.tabLeftContainer-tabs-left {
+    width: 40px;
+    position: absolute;
+}
+
+.tabLeftContainer-nav-tabs {
+    list-style: none;
+    height: 100%;
+    margin: 0px;
+    background-color: #393939;
+}
+
+.tabLeftContainer-tabs-left ul {
+    width: 40px;
+}
+
+.tabLeftContainer-nav-tabs li {
+    width: 100%;
+    height: 110px;
+    text-align: center;
+    overflow: hidden;
+    border-bottom: 1px solid #ccc;
+}
+
+.tabLeftContainer-active {
+    /*background-color: #006dcc;*/
+    background-color: #ccc;
+}
+
+.tabLeftContainer-nav-tabs a {
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    cursor: pointer;
+    text-align: center;
+    display: inline-block;
+}
+
+.tabLeftContainer-nav-tabs .tabLeftContainer-tabTitle {
+    display: block;
+    /*width: 20px;*/
+    width: 15px;
+    height: 84px;
+    margin: 6px auto 3px;
+    word-wrap: break-word;
+    word-break: break-all;
+    line-height: 14px;
+    color: #ccc;
+}
+
+.tabLeftContainer-active .tabLeftContainer-tabTitle {
+    color: #393939;
+    font-weight: bold;
+}
+
+.tabLeftContainer-tab-content {
+    position: absolute;
+    left: 40px;
+}
+
+.tabLeftContainer-tab-pane {
+    width: 100%;
+    height: 100%;
+}
+
+#tabLeftContainer_west {
+    overflow: hidden;
+}
+
+.tabLeftContainer-tabClose {
+    color: red;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 20px;
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+    line-height: 14px;
+    display: none;
+}
+
+.tabLeftContainer-active .tabLeftContainer-tabClose {
+    display: block;
+}
+
+.tabLeftContainer-tabContainer {
+    width: 100%;
+    height: 100%;
+}
+
+#tabLeftContainer_center .tabLeftContainer-contaner {
+    float: left;
+}

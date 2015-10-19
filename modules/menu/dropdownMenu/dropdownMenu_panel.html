@@ -1,0 +1,30 @@
+<div class="navbar">
+	<div class="dropdownMenu-navbar-inner">
+		<div class="container">
+			<ul id="demoMenu_menuNav" class="nav" role="navigation">
+				<%for(var i = 0;i < menus.length;i++){%>
+				<li id="<%=menus[i].mid%>" class="dropdown">
+					<a id="<%=menus[i].mid + '_a'%>" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">
+					<%=menus[i].name%>
+					</a>
+					<ul id="<%=menus[i].mid + '_u'%>" 
+						class="dropdown-menu dropdownMenu-menu<%=openLeft ? ' pull-right' : ''%>" 
+						role="menu" aria-labelledby="<%=menus[i].mid + '_a'%>">
+					<%var sm = menus[i].children;%>
+					<%for(var j = 0;j < sm.length;j++){%>
+						<%if(sm[j].url === null){%>
+						<li class="divider dropdownMenu-clear"></li>
+						<%}else{%>
+						<li id="<%=sm[j].mid%>" class="dropdownMenu-menu-item">
+							<div class="dropdownMenu-menu-item-img" style="background-image:url(<%=sm[j].icon%>);"></div>
+							<div class="dropdownMenu-menu-item-title"><%=sm[j].name%></div>
+						</li>
+						<%}%>
+					<%}%>
+					</ul>
+				</li>
+				<%}%>
+			</ul>
+		</div>
+	</div>
+</div>

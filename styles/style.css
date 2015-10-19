@@ -1,0 +1,46 @@
+/*====================================
+=            common style            =
+====================================*/
+
+body {
+    height: 100%;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    font-family: "Quattrocento", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+}
+
+*[disabled] {
+    color: #c7ccd6;
+}
+/*input与label在ie11中不能保证水平*/
+
+input[type='radio'],
+input[type='checkbox'] {
+    margin: 1px 0 0;
+    margin-top: 1px\9;
+    /*ie6-9*/
+    
+    *margin-top: 0;
+}
+
+.legend {
+    border: 0;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 0px;
+    width: 100%;
+    font-size: 14px;
+    line-height: 20px;
+    color: #333333;
+    margin-bottom: 10px;
+    clear: both;
+}
+
+.nano>.nano-pane {
+    background: #EAEAF9;
+}
+
+.nano>.nano-pane>.nano-slider {
+    background: #B5B1BA;
+}
+/*-----  End of common style  ------*/

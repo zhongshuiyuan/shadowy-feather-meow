@@ -1,0 +1,10 @@
+.demoHead-headContainer{
+	height: 100%;
+	text-align: center;
+}
+.demoHead-title{
+	font-weight: bold;
+	font-size: 22px;
+	line-height: 22px;
+	height: 100%;
+}

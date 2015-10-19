@@ -1,0 +1,23 @@
+.demoContainer-contaner {
+    width: 100%;
+    height: 100%;
+}
+
+.demoContainer-title {
+    height: 50px;
+}
+
+.tabClose {
+    color: red;
+    cursor: pointer;
+    display: none;
+}
+
+.nav-tabs > .active .tabClose {
+    display: inline;
+}
+
+.demoContainer-tabContainer {
+    width: 100%;
+    height: 100%;
+}
