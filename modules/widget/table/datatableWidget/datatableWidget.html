@@ -1,0 +1,38 @@
+<div id="datatableWidget_container" class="datatableWidget-container">
+	<%var s = striped == undefined ? '' : ' table-striped';%>
+	<%var b = bordered == undefined ? '' : ' table-bordered';%>
+	<%var h = hover == undefined ? '' : ' table-hover';%>
+	<%var c = condensed == undefined ? '' : ' table-condensed';%>
+	<div id="datatableWidget_divth"> 
+		<table id="datatableWidget_table" class="<%=s + b + h + c%>">
+			<%if(caption != null){%>
+			<%var ts = '';%>
+			<%if(typeof captionStyle == 'function'){%>
+			<%ts = captionStyle();%>
+			<%}%>
+			<caption<%=ts == '' ? '' : ' style="' + ts + '"'%>><%=caption%></caption>
+			<%}%>
+			<thead>
+				<tr>
+					<%for(var i = 0;i < columns.length;i++){%>
+					<%var ci = columns[i];%>
+					<%var w = ci.width == undefined ? '' : 'width: ' + ci.width + 'px;';%>
+					<%var a = ci.align == undefined ? '' : 'text-align: ' + ci.align + ';';%>
+					<%var hs = '';%>
+					<%if(typeof ci.headStyle == 'function'){%>
+					<%hs = ci.headStyle(i, ci);%>
+					<%}%>
+					<%var s = a + w + hs;%>
+					<th<%=s == '' ? '' : ' style="' + s + '"'%>><%=ci.title%></th>
+					<%}%>
+				</tr>
+			</thead>
+		</table>
+	</div>
+	<div id="datatableWidget_divtb" class="hnano" style="overflow:auto;">
+		<table class="hnano-content <%=s + b + h + c%>" style="display:block;overflow:hidden;">
+			<tbody id="datatableWidget_tbody"></tbody>
+		</table>
+	</div>
+	<div id="datatableWidget_pagination" class="datatableWidget-pager"></div>
+</div>

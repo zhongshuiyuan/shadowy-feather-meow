@@ -22,14 +22,11 @@ requirejs.config({
         'bootstrap': './base/bootstrap/bootstrap',
 
         'jquery_zTree': './base/jquery/plugins/jquery.ztree.all-3.5.min',
-        'jquery_ui': './base/jquery/plugins/jquery-ui',
         'jquery_nanoScroller': './base/jquery/plugins/jquery.nanoscroller.min',
 
         'bootstrap_select': './base/bootstrap/plugins/bootstrap-select',
         'bootstrap_contextmenu': './base/bootstrap/plugins/bootstrap-contextmenu',
         'bootstrap_popover': './base/bootstrap/plugins/bootstrap-popover',
-        'bootstrap_datetimepicker': './base/bootstrap/plugins/bootstrap-datetimepicker.min',
-        'bootstrap_datetimepicker_zh_CN': './base/bootstrap/plugins/bootstrap-datetimepicker.zh-CN',
 
         /*===================================
         =            base module            =
@@ -45,13 +42,6 @@ requirejs.config({
         'sfAppBase': './modules/base/sfAppBase/sfAppBase',
         /*=====  End of base module  ======*/
 
-        /*===================================================
-        =            common component and plugin            =
-        ===================================================*/
-        'loadingWidget': './modules/widget/loading/loadingWidget/loadingWidget',
-        /*=====  End of common component and plugin  ======*/
-
-
         'systemConfig': './projects/config',
 
         'projectConfig': './projects/' + SF.config.project + '/config',
@@ -62,13 +52,7 @@ requirejs.config({
             exports: '_'
         },
         'xml2json': ['jquery'],
-        'bootstrap': ['jquery'],
-        'bootstrap_datetimepicker_zh_CN': ['bootstrap_datetimepicker'],
-
-        'loadingWidget': [
-            './modules/widget/loading/loadingWidget/loadingWidget_config',
-            'css!./modules/widget/loading/loadingWidget/loadingWidget.css'
-        ]
+        'bootstrap': ['jquery']
     }
 });
 

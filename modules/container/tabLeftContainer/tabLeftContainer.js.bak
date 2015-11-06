@@ -22,8 +22,6 @@ define([
 
     var DEFAULT_WEST_MAX_NUM = 2;
 
-    var _scbList = ['onShow', 'onShown', 'onHide', 'onHidden'];
-
     function _attr(o, k, v) {
         try {
             var ks = k.split('.');
@@ -308,12 +306,6 @@ define([
                 cd = me.__findContainer__(options);
             }
             if(cd && cd.container){
-                for(var i = 0;i < _scbList.length;i++){
-                    var tcb = _valueOrDefault(options, _scbList[i], null);
-                    if(typeof tcb == 'function'){
-                        cd[_scbList[i]] = tcb;
-                    }
-                }
                 if(cd.type == 'module' && cd.region == 'west'){
                     me._showTab({
                         id: cid
@@ -453,7 +445,7 @@ define([
             //nav & tab content
             var pre = 'tabLeftContainer_';
             var cid = pre + 'tab_' + me.fguid() + '_' + new Date().getTime();
-            var title = _valueOrDefault(options, 'title', _valueOrDefault(options, 'name', '新面�?));
+            var title = _valueOrDefault(options, 'title', _valueOrDefault(options, 'name', '新面板'));
             var stab = "<div id='" + cid + "_p' class='tabLeftContainer-tab-pane' style='display:none;'></div>";
             var sli = "<li id='" + cid + "_l'><a id='" + cid + "_a'><span>" + title + "</span>" +
                 (c ? "<button id='" + cid + "_c' class='close'>&times;</button>" : "") + "</a></li>";

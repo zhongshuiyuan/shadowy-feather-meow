@@ -118,34 +118,11 @@ define(['jquery', 'underscore', 'sfModuleBase'], function($, _, SfModuleBase) {
                 for(var j = 0;j < menus[i].children.length;j++){
                     var m = menus[i].children[j];
                     if(m.url){
-                        var $m = me.el.find('#' + m.mid);
-                        if(m.menuType == 'toggle' & m.checked == true){
-                            $m.addClass('sf-menubase-checked');
-                        }
-                        $m.on('click', (function(m, md) {
+                        $(me.el).find('#' + m.mid).on('click', (function(m) {
                             return function(){
-                                var p = m.param || null;
-                                var cb = function(m2){
-                                    m.module = m2;
-                                };
-                                if(m.menuType == 'toggle'){
-                                    var $md = $(md);
-                                    if($md.hasClass('sf-menubase-checked')){
-                                        $md.removeClass('sf-menubase-checked');
-                                        if(m.module){
-                                            me.moduleMgr.destroyModule({
-                                                mid: m.module.getId()
-                                            }, m.type != 'none');
-                                        }
-                                    }else{
-                                        $md.addClass('sf-menubase-checked');
-                                        me.moduleMgr.loadModule(m, p, cb);
-                                    }
-                                    return;
-                                }
-                                me.moduleMgr.loadModule(m, p, cb);
+                                me.moduleMgr.loadModule(m);
                             };
-                        })(m, this));
+                        })(m));
                     }
                 }
             }

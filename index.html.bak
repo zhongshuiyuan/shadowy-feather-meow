@@ -14,7 +14,6 @@
     <link rel="stylesheet" type="text/css" href="./styles/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="./styles/bootstrap/bootstrap-select.min.css">
     <link rel="stylesheet" type="text/css" href="./styles/bootstrap/bootstrap-switch.min.css">
-    <link rel="stylesheet" type="text/css" href="./styles/bootstrap/bootstrap-datetimepicker.min.css">
     <link rel="stylesheet" type="text/css" href="./styles/fontawesome/css/font-awesome.min.css">
     <!--[if IE 7]>
     <link rel="stylesheet" type="text/css" href=".styles/fontawesome/css/font-awesome-ie7.min.css">

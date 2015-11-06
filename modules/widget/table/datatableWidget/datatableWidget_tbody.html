@@ -1,0 +1,26 @@
+<%for(var i = 0;i < rows.length;i++){%>
+<%var ri = rows[i];%>
+<%var rs = '';%>
+<%if(typeof rowStyle == 'function'){%>
+<%rs += rowStyle(i, rows[i]);%>
+<%}%>
+<tr datatable-data-ri="<%=i%>"<%=rs == '' ? '' : ' style="' + rs + '"'%>>
+	<%for(var j = 0;j < columns.length;j++){%>
+	<%var cj = columns[j];%>
+	<%var v = ri[cj.field];%>
+	<%var w = cj.width == undefined ? '' : 'width: ' + cj.width + 'px;';%>
+	<%var a = cj.align == undefined ? '' : 'text-align: ' + cj.align + ';';%>
+	<%var cs = a + w;%>
+	<%if(typeof cj.cellStyle == 'function'){%>
+	<%cs += cj.cellStyle(v, i, ri);%>
+	<%}%>
+	<td datatable-data-ri="<%=i%>" datatable-data-ci="<%=j%>"<%=cs == '' ? '' : ' style="' + cs + '"'%>>
+		<%var cf = cj.formatter%>
+		<%if(cf && typeof cf == 'function'){%>
+		<%v = cf(v, ri, i)%>
+		<%}%>
+		<%=v%>
+	</td>
+	<%}%>
+</tr>
+<%}%>

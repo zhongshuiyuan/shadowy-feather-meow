@@ -1,0 +1,37 @@
+.loadingWidget-mask{
+	width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1000;
+    background-color: #000000;
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+    text-align: center;
+    display: none;
+}
+
+.loadingWidget-loading-container{
+	background-color: #545658;
+	padding: 5px;
+	display: inline-block;
+}
+
+.loadingWidget-loading-inner{
+	background-color: #f5f7f8;
+	border: 1px solid #468847;
+}
+
+.loadingWidget-loadingImg{
+	background-image: url(./image/loading-2.gif);
+	background-repeat: no-repeat;
+	height: 37px;
+}
+
+.loadingWidget-loadingMsg{
+	margin-left: 37px;
+	line-height: 37px;
+}

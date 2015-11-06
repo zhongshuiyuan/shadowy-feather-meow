@@ -434,19 +434,7 @@ define(['jquery', 'underscore', 'sfModuleBase'], function($, _, SfModuleBase) {
             var mi = me.__findModule__({
                 url: u
             });
-            var nf = true;
-            if(mi && mi.length > 0){
-                var tmi = mi[0];
-                var mn = tmi.moduleInfo.maxnum;
-                mn = mn == undefined ? 1 : mn;
-                nf = mi.length < mn;
-                mi = mi[mi.length - 1];
-            }
-            if (!nf && mi) {
-                if(mi.moduleInfo.region == 'none'){
-                    mi.module.render();
-                    return;
-                }
+            if (mi) {
                 var op = {};
                 $.extend(true, op, options, {
                     type: mi.moduleInfo.type,
@@ -469,40 +457,6 @@ define(['jquery', 'underscore', 'sfModuleBase'], function($, _, SfModuleBase) {
                     deps: _valueOrDefault(options, 'deps', null),
                     onLoaded: function(Module, config, style) {
                         var m = null;
-                        if(r == 'none'){
-                            var p = {
-                                el: null,
-                                config: config,
-                                dataMgr: me.dataMgr,
-                                moduleMgr: me,
-                                onRendered: function(m2){
-                                    cb2(m2);
-                                }
-                            };
-                            if (params) {
-                                $.extend(true, p, params);
-                            }
-                            m = new Module(p);
-                            m.render();
-                            ms[t] = ms[t] || [];
-                            var mo = {
-                                url: u,
-                                fid: null,
-                                mid: m.getId(),
-                                cid: null,
-                                style: s,
-                                module: m,
-                                moduleInfo: options
-                            };
-                            ms[t].push(mo);
-                            if (me.data.__mc__[u] == undefined) {
-                                me.data.__mc__[u] = 0;
-                            }
-                            me.data.__mc__[u]++;
-                            me.data.__ml__.push(mo);
-                            cb(m);
-                            return;
-                        }
                         var op = {};
                         $.extend(true, op, options, {
                             available: _valueOrDefault(options, 'exclusive', true),
@@ -654,7 +608,6 @@ define(['jquery', 'underscore', 'sfModuleBase'], function($, _, SfModuleBase) {
             var t = _valueOrDefault(options, 'type', null);
             var u = _valueOrDefault(options, 'url', null);
             var mid = _valueOrDefault(options, 'mid', null);
-            var ml = [];
             for (var i in ms) {
                 if (t && t != i) {
                     continue;
@@ -664,16 +617,12 @@ define(['jquery', 'underscore', 'sfModuleBase'], function($, _, SfModuleBase) {
                     for (var j = 0; j < mi.length; j++) {
                         var m = mi[j];
                         if (m.mid && m.mid == mid || m.url && m.url == u) {
-                            // return m;
-                            ml.push(m);
+                            return m;
                         }
                     }
                 }
             }
-            if(ml.length > 0){
-                return ml;
-            }
-            if (t && ms[t] && !u) {
+            if (t && ms[t]) {
                 return ms[t];
             }
             return null;

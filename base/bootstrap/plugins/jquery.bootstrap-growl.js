@@ -34,6 +34,7 @@
       "font-size": "15px"
     };
     css[options.offset.from] = offsetAmount + "px";
+    $alert.css(css);
     if (options.width !== "auto") {
       $alert.css("width", options.width + "px");
     }
@@ -75,4 +76,3 @@
   };
 
 }).call(this);
-
