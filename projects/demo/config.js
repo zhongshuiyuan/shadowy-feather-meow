@@ -52,7 +52,7 @@
         "config": "./modules/widget/demo/demoWidget/demoWidget_config",
         "style": "./modules/widget/demo/demoWidget/demoWidget.css",
         "type": "module",
-        "region": "west",
+        "region": "center",
         "group": "1",
         "groupName": "菜单1"
     }, {
@@ -62,7 +62,7 @@
         "config": "./modules/widget/demo/demoWidget/demoWidget_config",
         "style": "./modules/widget/demo/demoWidget/demoWidget.css",
         "type": "module",
-        "region": "west",
+        "region": "center",
         "group": "2",
         "groupName": "菜单2"
     }, {
@@ -73,7 +73,7 @@
         "config": "./modules/widget/demo/demoWidget/demoWidget_config",
         "style": "./modules/widget/demo/demoWidget/demoWidget.css",
         "type": "module",
-        "region": "west",
+        "region": "east",
         "group": "2",
         "groupName": "菜单2"
     }, {
@@ -84,7 +84,7 @@
         "config": "./modules/widget/demo/demoWidget/demoWidget_config",
         "style": "./modules/widget/demo/demoWidget/demoWidget.css",
         "type": "module",
-        "region": "west",
+        "region": "east",
         "group": "3",
         "groupName": "菜单3"
     }];
@@ -98,20 +98,30 @@
         //     url: "./modules/layout/demoLayout/demoLayout",
         //     style: "./modules/layout/demoLayout/demoLayout.css"
         // },
+        // layout: {
+        //     url: "./modules/layout/nwcLayout/nwcLayout",
+        //     config: "./modules/layout/nwcLayout/nwcLayout_config",
+        //     style: "./modules/layout/nwcLayout/nwcLayout.css"
+        // },
         layout: {
-            url: "./modules/layout/nwcLayout/nwcLayout",
-            config: "./modules/layout/nwcLayout/nwcLayout_config",
-            style: "./modules/layout/nwcLayout/nwcLayout.css"
+            url: "./modules/layout/ncLayout/ncLayout",
+            config: "./modules/layout/ncLayout/ncLayout_config",
+            style: "./modules/layout/ncLayout/ncLayout.css"
         },
         // container: {
         //     url: "./modules/container/demoContainer/demoContainer",
         //     config: "./modules/container/demoContainer/demoContainer_config",
         //     style: "./modules/container/demoContainer/demoContainer.css"
         // },
+        // container: {
+        //     url: "./modules/container/tabLeftContainer/tabLeftContainer",
+        //     config: "./modules/container/tabLeftContainer/tabLeftContainer_config",
+        //     style: "./modules/container/tabLeftContainer/tabLeftContainer.css"
+        // },
         container: {
-            url: "./modules/container/tabLeftContainer/tabLeftContainer",
-            config: "./modules/container/tabLeftContainer/tabLeftContainer_config",
-            style: "./modules/container/tabLeftContainer/tabLeftContainer.css"
+            url: "./modules/container/tabContainer/tabContainer",
+            config: "./modules/container/tabContainer/tabContainer_config",
+            style: "./modules/container/tabContainer/tabContainer.css"
         },
         server: {},
         service: {},

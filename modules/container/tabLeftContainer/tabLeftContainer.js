@@ -1,4 +1,4 @@
-/**
+﻿/**
  * filename:tabLeftContainer.js
  * desc:
  * deps:jquery, requirejs
@@ -453,7 +453,7 @@ define([
             //nav & tab content
             var pre = 'tabLeftContainer_';
             var cid = pre + 'tab_' + me.fguid() + '_' + new Date().getTime();
-            var title = _valueOrDefault(options, 'title', _valueOrDefault(options, 'name', '新面�?));
+            var title = _valueOrDefault(options, 'title', _valueOrDefault(options, 'name', '新面板'));
             var stab = "<div id='" + cid + "_p' class='tabLeftContainer-tab-pane' style='display:none;'></div>";
             var sli = "<li id='" + cid + "_l'><a id='" + cid + "_a'><span>" + title + "</span>" +
                 (c ? "<button id='" + cid + "_c' class='close'>&times;</button>" : "") + "</a></li>";

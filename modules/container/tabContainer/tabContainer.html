@@ -1,0 +1,33 @@
+<%if(region == 'north'){%>
+<div id="tabContainer_head" class="tabContainer-container tabContainer-head">
+	<div id="tabContainer_title" class="tabContainer-container tabContainer-title"></div>
+	<div id="tabContainer_menu" class="tabContainer-container tabContainer-menu"></div>
+</div>
+<%}else if(region == 'center'){%>
+<div id="tabContainer_center" class="tabContainer-container tabContainer-center">
+	<div id="tabContainer_center_navbar">
+		<div id="tabContainer_center_lbtn_div" class="tabContainer-btn-div">
+			<i id="tabContainer_center_il" class="icon-chevron-right"></i>
+		</div>
+		<div id="tabContainer_center_nav" class="tabContainer-tabs tabContainer-tabs-top"></div>
+		<div id="tabContainer_center_rbtn_div" class="tabContainer-btn-div">
+			<i id="tabContainer_center_ir" class="icon-chevron-right"></i>
+		</div>
+	</div>
+	<div id="tabContainer_center_contents">
+		<div id="tabContainer_cwest" class="tabContainer-container tabContainer-cwest">
+			<div id="tabContainer_cwest_contents" class="tabContainer-tab-contents"></div>
+		</div>
+		<div id="tabContainer_ccenter" class="tabContainer-container tabContainer-ccenter">
+			<div id="tabContainer_ccenter_contents" class="tabContainer-tab-contents"></div>
+		</div>
+		<div id="tabContainer_ceast" class="tabContainer-container tabContainer-ceast">
+			<div id="tabContainer_ceast_contents" class="tabContainer-tab-contents"></div>
+		</div>
+	</div>
+</div>
+<%}else if(region == 'south'){%>
+
+<%}else{%>
+
+<%}%>

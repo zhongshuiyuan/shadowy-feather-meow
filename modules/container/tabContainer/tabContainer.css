@@ -1,0 +1,125 @@
+.tabContainer-container {
+    width: 100%;
+    height: 100%;
+    /*overflow: hidden;*/
+}
+
+.tabContainer-contaner-hide {
+    width: 0px;
+}
+
+.tabContainer-head{
+    background-color: #3879d9;
+}
+
+.tabContainer-title {
+    /*height: 50px;*/
+    position: absolute;
+    width: 350px;
+}
+
+.tabContainer-menu {
+    position: absolute;
+}
+
+#tabContainer_center_navbar{
+    width: 100%;
+    height: 40px;
+    background-color: #3879d9;
+}
+
+.tabContainer-btn-div{
+    width: 20px;
+    height: 20px;
+    padding: 12px 5px 8px 5px;
+    float: left;
+    cursor: pointer;
+}
+
+#tabContainer_center_nav{
+    height: 100%;
+    float: left;
+}
+
+.tabContainer-nav-tabs {
+    list-style: none;
+    height: 100%;
+    margin: 0px;
+    /*background-color: #393939;*/
+}
+
+.tabContainer-nav-tabs li {
+    min-width: 114px;
+    height: 30px;
+    float: left;
+    text-align: center;
+    overflow: hidden;
+    padding: 10px 5px 0px 5px;
+    /*border-bottom: 1px solid #ccc;*/
+}
+
+.tabContainer-nav-tabs a {
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    cursor: pointer;
+    text-align: center;
+    display: block;
+}
+
+.tabContainer-active {
+    /*background-color: #006dcc;*/
+    /*background-color: #ccc;*/
+    background-color: #f5f5f5;
+}
+
+.tabContainer-nav-tabs .tabContainer-tabTitle {
+    display: inline-block;
+    word-wrap: break-word;
+    word-break: break-all;
+    margin: 5px;
+    /*color: #ccc;*/
+    color: #f5f5f5;
+}
+
+.tabContainer-active .tabContainer-tabTitle {
+    /*color: #393939;*/
+    font-weight: bold;
+    color: #3879d9;
+}
+
+.tabContainer-tabClose {
+    color: red;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 20px;
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+    vertical-align: middle;
+    margin-bottom: 5px;
+    display: none;
+}
+
+.tabContainer-active .tabContainer-tabClose {
+    display: inline-block;
+}
+
+#tabContainer_center_contents > .tabContainer-container{
+    height: 100%;
+    float: left;
+}
+
+.tabContainer-tab-contents{
+    width: 100%;
+    height: 100%;
+}
+
+.tabContainer-tab-pane {
+    width: 100%;
+    height: 100%;
+}
+
+.tabContainer-tabContainer {
+    width: 100%;
+    height: 100%;
+}

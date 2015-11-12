@@ -17,7 +17,8 @@
 
         // 子菜单类型
         // list, panel
-        dropdownType: 'panel'
+        dropdownType: 'list',
+        addFrame: false
     };
 
 	define([], function(){

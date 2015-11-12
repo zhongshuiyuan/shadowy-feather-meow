@@ -106,21 +106,23 @@ define([
                 menus: me.menu,
                 openLeft: me.config && me.config.openLeft
             }));
-            $(el).find('.dropdown-menu').each(function(){
-                var $this = $(this);
-                var t = $this.parent().height();
-                var w = _calcWidth($this);
-                var h = _calcHeight($this);
-                var f = document.createElement('iframe');
-                f.id = this.id + '_f';
-                f.width = w;
-                f.height = h;
-                f.frameBorder = 0;
-                f.scrolling = 'no';
-                f.className = 'dropdownMenu-dropdown-frame';
-                // f.allowTransparency = "true";
-                $this.before(f);
-            });
+            if(me.config.addFrame){
+                $(el).find('.dropdown-menu').each(function(){
+                    var $this = $(this);
+                    var t = $this.parent().height();
+                    var w = _calcWidth($this);
+                    var h = _calcHeight($this);
+                    var f = document.createElement('iframe');
+                    f.id = this.id + '_f';
+                    f.width = w;
+                    f.height = h;
+                    f.frameBorder = 0;
+                    f.scrolling = 'no';
+                    f.className = 'dropdownMenu-dropdown-frame';
+                    // f.allowTransparency = "true";
+                    $this.before(f);
+                });
+            }
             me.base();
             return me;
         },

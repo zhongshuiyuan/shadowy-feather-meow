@@ -17,9 +17,9 @@ define(['jquery', 'underscore', 'sfAppBase'], function($, _, SfAppBase) {
         constructor: function(options) {
             var me = this;
             me.base(options);
-            me.el.document.oncontextmenu = function() {
-                return false;
-            };
+            // me.el.document.oncontextmenu = function() {
+            //     return false;
+            // };
         },
         start: function() {
             var me = this;
