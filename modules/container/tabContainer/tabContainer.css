@@ -104,6 +104,11 @@
     display: inline-block;
 }
 
+.tabContainer-ccenter{
+    border-left: 1px solid #a0a1a3;
+    border-right: 1px solid #a0a1a3;
+}
+
 #tabContainer_center_contents > .tabContainer-container{
     height: 100%;
     float: left;

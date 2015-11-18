@@ -71,18 +71,14 @@ define([
                 return me;
             }
             el.document.title = me.config.docTitle;
-            me.moduleMgr.loadLayout(function(layout) {
-                var panels = layout.getPanels();
-                me.moduleMgr.loadContainer(panels, function(container) {
-                    me.moduleMgr.loadMenu(function() {
-                        me.moduleMgr.loadToolbar(function() {
-                            me.moduleMgr.loadPre(function() {
-                                me.start();
-                            });
-                        });
-                    });
+            if (me.config.login.mode == -1) {
+                me._loadMain();
+            }else{
+                me.moduleMgr.loadLogin(function(login){
+                    login.destroy();
+                    me._loadMain();
                 });
-            });
+            }
             return me;
         },
         resize: function() {
@@ -109,6 +105,22 @@ define([
         },
         start: function() {
             var me = this;
+        },
+        _loadMain: function() {
+            var me = this;
+            me.moduleMgr.loadLayout(function(layout) {
+                var panels = layout.getPanels();
+                me.moduleMgr.loadContainer(panels, function(container) {
+                    me.moduleMgr.loadMenu(function() {
+                        me.moduleMgr.loadToolbar(function() {
+                            me.moduleMgr.loadPre(function() {
+                                me.start();
+                            });
+                        });
+                    });
+                });
+            });
+            return me;
         },
         destroy: function() {
             var me = this;

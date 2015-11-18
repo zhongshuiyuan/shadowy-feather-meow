@@ -10,6 +10,18 @@
  *
  **/
 
+requirejs.config({
+    baseUrl: "./",
+    paths: {
+        "openLayers2": "./modules/com/map/OpenLayers/OpenLayers",
+
+        "baiduTileLayer": "./modules/com/map/layer/baidu/baiduTileLayer"
+    },
+    shim: {
+        'baiduTileLayer': ['openLayers2']
+    }
+});
+
 define(['jquery', 'underscore', 'sfAppBase'], function($, _, SfAppBase) {
     var VERSION = '0.0.1';
 

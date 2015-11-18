@@ -94,6 +94,11 @@
         serviceIp: '192.168.1.65',
         docTitle: 'simple frame',
         title: 'I am Demo Header',
+        login: {
+            url: './modules/widget/login/loginWidget/loginWidget',
+            config: './modules/widget/login/loginWidget/loginWidget_config',
+            style: './modules/widget/login/loginWidget/loginWidget.css'
+        },
         // layout: {
         //     url: "./modules/layout/demoLayout/demoLayout",
         //     style: "./modules/layout/demoLayout/demoLayout.css"
@@ -124,7 +129,7 @@
             style: "./modules/container/tabContainer/tabContainer.css"
         },
         server: {},
-        service: {},
+        service: [],
         // menu: [{
         //     url: "./modules/menu/demoMenu/demoMenu",
         //     style: "./modules/menu/demoMenu/demoMenu.css",
@@ -149,17 +154,18 @@
             "type": "title",
             "region": "north"
         },  {
-            "name": "启动",
-            "title": "自启动",
+            "name": "地图",
+            "title": "地图",
             "icon": "./images/menus/test.png",
-            "url": "./modules/widget/demo/demoWidget/demoWidget2",
-            "config": "./modules/widget/demo/demoWidget/demoWidget_config",
-            "style": "./modules/widget/demo/demoWidget/demoWidget.css",
+            "url": "./modules/widget/map/mapWidget/mapWidget",
+            "config": "./modules/widget/map/mapWidget/mapWidget_config",
+            "style": "./modules/widget/map/mapWidget/mapWidget.css",
             "type": "module",
-            "region": "west",
+            "region": "center",
             "group": "1",
             "groupName": "demo1",
-            "closable": false
+            "closable": false,
+            "tab": false
         }]
     };
 

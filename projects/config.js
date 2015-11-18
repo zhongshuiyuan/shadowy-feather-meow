@@ -11,16 +11,30 @@
  **/
 
 (function(ns) {
+    var userAuth = 'http://{$serviceIp$}/SimpleSpace/SSService/SimpleSpace_Service_UserAuthorization/REST/UserAuthorizationREST.svc/';
+
     var config = {
         project: 'demo',
         appType: 'local',
+        login: {
+            mode: 0
+        },
 
-        serviceProtocol:'http:',
+        serviceProtocol: 'http:',
         serviceIp: '127.0.0.1',
-        service: {}
+        server: {
+            serviceIp: '127.0.0.1'
+        },
+        service: [{
+            name: 'userLogin',
+            url: userAuth + 'UserLogin?userName={{userName}}&pwd={{pwd}}&token={{token}}'
+        }, {
+            name: 'userLogin',
+            url: userAuth + 'UserLogout?userID={{userID}}&token={{token}}'
+        }]
     };
 
-    if(typeof ns.SF == 'undefined'){
+    if (typeof ns.SF == 'undefined') {
         ns.SF = {};
     }
 

@@ -1,0 +1,50 @@
+.loginWidget-container{
+	width: 100%;
+	height: 100%;
+}
+
+.loginWidget-titleContainer{
+	height: 100px;
+	padding-top: 80px;
+}
+
+.loginWidget-title{
+	text-align: center;
+}
+
+.loginWidget-login{
+	width: 400px;
+	border: 1px solid #ccc;
+	margin: auto;
+}
+
+.loginWidget-loginTitle{
+	background-color: #ddd;
+}
+
+#loginWidget_loginTitle{
+	height: 20px;
+	padding: 10px 20px;
+}
+.loginWidget-user-pwd{
+	padding: 0px 20px;
+}
+
+.loginWidget-control-group{
+	margin-top: 30px;
+}
+
+.loginWidget-control-group input{
+	width: 280px;
+	padding: 10px 20px;
+}
+
+.loginWidget-control-group .add-on{
+	padding: 10px;
+}
+
+#loginWidget_btnLogin{
+	width: 100%;
+	height: 40px;
+	margin-bottom: 20px;
+}

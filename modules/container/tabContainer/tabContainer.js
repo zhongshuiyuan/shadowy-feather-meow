@@ -101,6 +101,7 @@ define([
         constructor: function(options) {
             var me = this;
             me.base(options);
+            me.moduleMgr = _valueOrDefault(options, 'moduleMgr', null);
             var t = me.data.t;
             me.dataMgr.registerMethod('showContainer', me.showContainer, me, t);
             me.dataMgr.registerMethod('openContainer', me.openContainer, me, t);
@@ -169,7 +170,7 @@ define([
             var cw = me.data._size.ww;
             var ew = me.data._size.ew;
             $cw.width(cw);
-            $cc.width(tcsw - cw - ew);
+            $cc.width(tcsw - cw - ew - 2);
             $ce.width(ew);
         },
         __initContainer__: function() {
@@ -322,7 +323,7 @@ define([
             });
             var ww = me.data._size.ww;
             var ew = me.data._size.ew;
-            var cw = w - ww - ew;
+            var cw = w - ww - ew - 2;
             if(a){
                 var s = 500;
                 me.data.ui.$cwest.animate({
@@ -358,6 +359,7 @@ define([
             }else{
                 me.data.ui.$rbi.removeClass(cnl).addClass(cnr);
             }
+            me.moduleMgr.resize();
             return me;
         },
         _openTab: function(options) {
@@ -457,6 +459,7 @@ define([
                 type: options.type,
                 region: r,
                 state: 1,
+                tab: t,
                 id: cid + '_p',
                 container: $tcs.find('#' + cid),
                 cid: cid,
@@ -566,6 +569,15 @@ define([
                     tcd = cd.splice(i, 1);
                     tc -= ctc;
                     i--;
+                }
+            }
+
+            for(var i = cd.length - 1;i >= 0;i--){
+                if(cd[i].region == tcd[0].region){
+                    me._showTab({
+                        id: cd[i].cid
+                    });
+                    break;
                 }
             }
 

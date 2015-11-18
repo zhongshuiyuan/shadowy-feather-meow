@@ -177,7 +177,7 @@ define(['jquery', 'underscore', 'sfModuleBase'], function($, _, SfModuleBase) {
             var ms = me.data.__ms__;
             var ks = ['layout', 'container', 'menu', 'toolbar', 'module'];
             for (var k = 0; k < ks.length; k++) {
-                var mi = ms[k];
+                var mi = ms[ks[k]];
                 if (mi) {
                     for (var i = 0; i < mi.length; i++) {
                         var m = mi[i].module;
@@ -205,13 +205,64 @@ define(['jquery', 'underscore', 'sfModuleBase'], function($, _, SfModuleBase) {
                             if(v == null){
                                 continue;
                             }
-                            u.replace('{{' + k + '}}', v);
+                            u = u.replace('{{' + k + '}}', v);
                         }
                     }
                     return u;
                 }
             }
             return null;
+        },
+        loadLogin: function(onLogin){
+            var me = this;
+            var ms = me.data.__ms__;
+            var cf = me.config && me.config.login;
+            if (!cf) {
+                return;
+            }
+            me.destroyModule({
+                type: 'login'
+            });
+            var u = cf.url;
+            var c = cf.config;
+            var s = cf.style;
+            me.__loadM__({
+                url: u,
+                config: c,
+                style: s,
+                deps: cf.deps,
+                onLoaded: function(Module, config, style) {
+                    var login = me.login = new Module({
+                        el: $(me.el).find('body'),
+                        dataMgr: me.dataMgr,
+                        config: config,
+                        moduleMgr: me,
+                        onLogin: function(){
+                            if(typeof onLogin == 'function'){
+                                onLogin(login);
+                            }
+                        }
+                    });
+                    login.render();
+                    ms.login = ms.login || [];
+                    var lo = {
+                        type: 'login',
+                        url: u,
+                        fid: null,
+                        mid: login.getId(),
+                        cid: null,
+                        style: s,
+                        module: login
+                    };
+                    ms.login.push(lo);
+                    if (me.data.__mc__[u] == undefined) {
+                        me.data.__mc__[u] = 0;
+                    }
+                    me.data.__mc__[u]++;
+                    me.data.__ml__.push(lo);
+                }
+            });
+            return me;
         },
         loadLayout: function(onLayoutLoaded) {
             var me = this;
@@ -260,6 +311,7 @@ define(['jquery', 'underscore', 'sfModuleBase'], function($, _, SfModuleBase) {
                     }
                 }
             });
+            return me;
         },
         loadContainer: function(panels, onContainerLoaded) {
             var me = this;
@@ -309,6 +361,7 @@ define(['jquery', 'underscore', 'sfModuleBase'], function($, _, SfModuleBase) {
                     }
                 }
             });
+            return me;
         },
         loadMenu: function(onMenuLoaded) {
             var me = this;
@@ -337,6 +390,7 @@ define(['jquery', 'underscore', 'sfModuleBase'], function($, _, SfModuleBase) {
                     }
                 });
             }
+            return me;
         },
         loadToolbar: function(onToolbarLoaded) {
             var me = this;
@@ -350,6 +404,7 @@ define(['jquery', 'underscore', 'sfModuleBase'], function($, _, SfModuleBase) {
             if (typeof onToolbarLoaded == 'function') {
                 onToolbarLoaded(null);
             }
+            return me;
         },
         loadPre: function(onPreLoaded){
             var me = this;
@@ -404,6 +459,7 @@ define(['jquery', 'underscore', 'sfModuleBase'], function($, _, SfModuleBase) {
             for(var i = 0;i < cf.length;i++){
                 lf(cf[i]);
             }
+            return me;
         },
         loadModule: function(options, params, onModuleLoaded, onModuleRendered) {
             var me = this;
@@ -564,6 +620,7 @@ define(['jquery', 'underscore', 'sfModuleBase'], function($, _, SfModuleBase) {
                     }
                 });
             }
+            return me;
         },
         destroyModule: function(options, ctnr) {
             var me = this;
@@ -612,6 +669,7 @@ define(['jquery', 'underscore', 'sfModuleBase'], function($, _, SfModuleBase) {
                     }
                 }
             }
+            return me;
         },
         __init__: function(options) {
             var me = this;
@@ -619,6 +677,7 @@ define(['jquery', 'underscore', 'sfModuleBase'], function($, _, SfModuleBase) {
             me.data.__mc__ = {};
             me.data.__ml__ = [];
             me.__initService__(me.config);
+            return me;
         },
         __initService__: function(config) {
             var me = this;
@@ -632,17 +691,19 @@ define(['jquery', 'underscore', 'sfModuleBase'], function($, _, SfModuleBase) {
             for (var i = 0; i < svc.length; i++) {
                 var n = svc[i].name;
                 var u = svc[i].url;
-                u = u.replace(/\{\S+\}/g, function(s) {
-                    if (svr[s] == undefined) {
+                u = u.replace(/\{\$\S+\$\}/g, function(s) {
+                    var ts = s.substr(2, s.length - 4);
+                    if (svr[ts] == undefined) {
                         return s;
                     }
-                    return svr[s];
+                    return svr[ts];
                 });
                 me.data.__svc__.push({
                     name: n,
                     url: u
                 });
             }
+            return me;
         },
         __findModule__: function(options) {
             var me = this;
@@ -761,6 +822,7 @@ define(['jquery', 'underscore', 'sfModuleBase'], function($, _, SfModuleBase) {
                 var cf = oi < 0 ? null : arguments[oi];
                 cb1(M, cf, s);
             });
+            return me;
         },
         __destroyM__: function(moduleInfo, ctnr) {
             if (!moduleInfo) {
@@ -783,6 +845,7 @@ define(['jquery', 'underscore', 'sfModuleBase'], function($, _, SfModuleBase) {
                     id: cid
                 });
             }
+            return me;
         },
         destroy: function() {
             var me = this;
