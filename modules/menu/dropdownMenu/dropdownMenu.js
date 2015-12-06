@@ -120,6 +120,10 @@ define([
                     f.scrolling = 'no';
                     f.className = 'dropdownMenu-dropdown-frame';
                     // f.allowTransparency = "true";
+                    if(me.config && me.config.openLeft){
+                        f.style.left = 'auto';
+                        f.style.right = '0px';
+                    }
                     $this.before(f);
                 });
             }

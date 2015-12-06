@@ -94,7 +94,7 @@ define(['jquery', 'underscore', 'sfModuleBase'], function($, _, SfModuleBase) {
             if (!m) {
                 return;
             }
-            for (var i in m) {
+            for (var i = 0;i < m.length;i++) {
                 if (m[i].t == t && m[i].c == context) {
                     m.splice(i, 1);
                 }
@@ -105,13 +105,18 @@ define(['jquery', 'underscore', 'sfModuleBase'], function($, _, SfModuleBase) {
             var h = {};
             for (var i in _helper) {
                 h[i] = (function(i){
-                    return function() {
-                        for (var j in _helper[i]) {
+                    return function() { 
+                        var rv = null;
+                        var f = 0;
+                        for (var j = 0;j < _helper[i].length;j++) {
                             if(id && id != _helper[i][j].c.getId()){
                                 continue;
                             }
-                            return _helper[i][j].m.apply(_helper[i][j].c, arguments);
+                            if(f == 0){
+                                rv = _helper[i][j].m.apply(_helper[i][j].c, arguments);
+                            }
                         }
+                        return rv;
                     }
                 })(i);
             }

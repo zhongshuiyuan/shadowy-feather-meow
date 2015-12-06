@@ -61,7 +61,7 @@ define(['jquery', 'underscore', 'base', 'sfEvent'], function($, _, Base, sfEvent
             me.eventBus = sfEvent;
             me.el = _valueOrDefault(options, 'el', null);
             me.config = _valueOrDefault(options, 'config', null);
-            var t = me.fguid() + '_' + new Date().getTime();
+            var t = me.data.t = me.fguid() + '_' + new Date().getTime();
             me.__id__ = me.__className__ + '_' + t;
         },
         fguid: function() {
